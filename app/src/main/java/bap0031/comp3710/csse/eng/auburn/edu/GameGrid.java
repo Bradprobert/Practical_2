@@ -22,13 +22,13 @@ public class GameGrid {
             int row = random.nextInt(4);
             int column = random.nextInt(4);
 
-            int startValue;
+            int startVal;
             if (random.nextInt(100) < 75)
-                startValue = 2;
+                startVal = 2;
             else
-                startValue = 4;
+                startVal = 4;
 
-            grid[row][column] = startValue;
+            grid[row][column] = startVal;
         }
     }
 
