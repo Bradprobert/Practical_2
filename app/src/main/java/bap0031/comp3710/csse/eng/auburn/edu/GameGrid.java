@@ -9,9 +9,12 @@ import java.util.Random;
 public class GameGrid {
 
     private int[][] grid;
+    private boolean[][] activeCells;
+    private int numActiveCells;
 
     public GameGrid() {
         grid = new int[4][4];
+        numActiveCells = 0;
         initializeGrid();
     }
 
@@ -33,20 +36,38 @@ public class GameGrid {
                 column = random.nextInt(4);
             }
             grid[row][column] = startVal;
+            activeCells[row][column] = true;
         }
+        numActiveCells = 2;
     }
 
     public void leftShift() {
         for (int i = 0; i < 4; i++) {
+            //slide tiles left
             int index = 0;
             for (int j = 0; j < 4; j++) {
                 if (grid[i][j] != 0) {
                     grid[i][index] = grid[i][j];
                     grid[i][j] = (j != index ? 0 : grid[i][j]);
+                    activeCells[i][index] = true;
+                    activeCells[i][j] = (j == index && activeCells[i][j]);
                     index++;
                 }
             }
         }
+    }
+
+    public void combineTilesLeft() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (grid[i][j] == grid[i][j + 1]) {
+                    grid[i][j] = grid[i][j] * 2;
+                    grid[i][j + 1] = 0;
+                    numActiveCells--;
+                }
+            }
+        }
+        leftShift();
     }
 
     public void upShift() {
@@ -56,6 +77,8 @@ public class GameGrid {
                 if (grid[j][i] != 0) {
                     grid[index][i] = grid[j][i];
                     grid[j][i] = (j != index ? 0 : grid[j][i]);
+                    activeCells[index][i] = true;
+                    activeCells[j][i] = (j == index && activeCells[j][i]);
                     index++;
                 }
             }
@@ -69,6 +92,8 @@ public class GameGrid {
                 if (grid[i][j] != 0) {
                     grid[i][index] = grid[i][j];
                     grid[i][j] = (j != index ? 0 : grid[i][j]);
+                    activeCells[i][index] = true;
+                    activeCells[i][j] = (j == index && activeCells[i][j]);
                     index--;
                 }
             }
@@ -82,10 +107,46 @@ public class GameGrid {
                 if (grid[j][i] != 0) {
                     grid[index][i] = grid[j][i];
                     grid[j][i] = (j != index ? 0 : grid[j][i]);
+                    activeCells[index][i] = true;
+                    activeCells[j][i] = (j == index && activeCells[j][i]);
                     index--;
                 }
             }
         }
+    }
+
+    public boolean addNewNumber() {
+        if (numActiveCells < 16) {
+            Random rand = new Random();
+            int row = rand.nextInt(4);
+            int column = rand.nextInt(4);
+            while (activeCells[row][column]) {
+                row = rand.nextInt(4);
+                column = rand.nextInt(4);
+            }
+
+            int startVal = rand.nextInt(100) < 75 ? 2 : 4;
+
+            grid[row][column] = startVal;
+            activeCells[row][column] = true;
+            numActiveCells++;
+
+            return true;
+        } else
+            return false;
+    }
+
+    public boolean hasNextMove() {
+        if (numActiveCells < 16) {
+            return true;
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+
+            }
+        }
+
+        return false;
     }
 
     public int[][] getGrid() {
