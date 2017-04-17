@@ -4,15 +4,15 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="colorTileNum2">#cbfffffc</color>
-    <color name="colorTileNum4">#f4efb7</color>
-    <color name="colorTileNum8">#f3c36a</color>
-    <color name="colorTileNum16">#eaad5e</color>
-    <color name="colorTileNum32">#e57373</color>
-    <color name="colorTileNum64">#ea5b33</color>
-    <color name="colorTileNum128">#ece168</color>
-    <color name="colorTileNum256">#d2dc63</color>
-    <color name="colorTileNum512">#42d238</color>
-    <color name="colorTileNum1024">#52ede0</color>
-    <color name="colorTileNum2048">#b32dd1</color>
+    <color name="colorTileNum2">#b2ff59</color>
+    <color name="colorTileNum4">#69f0ae</color>
+    <color name="colorTileNum8">#4fc3f7</color>
+    <color name="colorTileNum16">#ea80fc</color>
+    <color name="colorTileNum32">#eeff41</color>
+    <color name="colorTileNum64">#ffab40</color>
+    <color name="colorTileNum128">#69f0ae</color>
+    <color name="colorTileNum256">#b2ff59</color>
+    <color name="colorTileNum512">#ff5252</color>
+    <color name="colorTileNum1024">#ffee58</color>
+    <color name="colorTileNum2048">#ce8600</color>
 </resources>

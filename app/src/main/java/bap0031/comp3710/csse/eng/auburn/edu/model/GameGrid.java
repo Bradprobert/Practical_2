@@ -13,27 +13,12 @@ public class GameGrid {
     private int[][] grid;
     private boolean[][] activeCells;
     private int numActiveCells;
-    private int totalScore;
 
     public GameGrid() {
         grid = new int[4][4];
         activeCells = new boolean[4][4];
         numActiveCells = 0;
-        totalScore = 0;
         initializeGrid();
-    }
-
-    public GameGrid(List<Tile> list, int totalScore) {
-        this.totalScore = totalScore;
-
-        grid = new int[4][4];
-        activeCells = new boolean[4][4];
-        numActiveCells = 0;
-        for (Tile t : list) {
-            grid[t.getRow()][t.getColoumn()] = t.getValue();
-            activeCells[t.getRow()][t.getColoumn()] = t.isActive();
-            numActiveCells++;
-        }
     }
 
     private void initializeGrid() {
@@ -80,9 +65,7 @@ public class GameGrid {
             for (int j = 0; j < 3; j++) {
                 if (grid[i][j] == grid[i][j + 1]) {
                     grid[i][j] = grid[i][j] * 2;
-                    totalScore += grid[i][j];
                     grid[i][j + 1] = 0;
-                    activeCells[i][j + 1] = false;
                     numActiveCells--;
                 }
             }
@@ -105,21 +88,6 @@ public class GameGrid {
         }
     }
 
-    public void combineTilesUp() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (grid[j][i] == grid[j + 1][i]) {
-                    grid[j][i] = grid[j][i] * 2;
-                    totalScore += grid[j][i];
-                    grid[j + 1][i] = 0;
-                    activeCells[j + 1][i] = false;
-                    numActiveCells--;
-                }
-            }
-        }
-        upShift();
-    }
-
     public void rightShift() {
         for (int i = 0; i < 4; i++) {
             int index = 3;
@@ -135,21 +103,6 @@ public class GameGrid {
         }
     }
 
-    public void combineTilesRight() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 3; j > 0; j--) {
-                if (grid[i][j] == grid[i][j - 1]) {
-                    grid[i][j] = grid[i][j] * 2;
-                    totalScore += grid[i][j];
-                    grid[i][j - 1] = 0;
-                    activeCells[i][j - 1] = false;
-                    numActiveCells--;
-                }
-            }
-        }
-        rightShift();
-    }
-
     public void downShift() {
         for (int i = 0; i < 4; i++) {
             int index = 3;
@@ -163,25 +116,6 @@ public class GameGrid {
                 }
             }
         }
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public void combineTilesDown() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 3; j > 0; j--) {
-                if (grid[j][i] == grid[j - 1][i]) {
-                    grid[j][i] = grid[j][i] * 2;
-                    totalScore += grid[j][i];
-                    grid[j - 1][i] = 0;
-                    activeCells[j - 1][i] = false;
-                    numActiveCells--;
-                }
-            }
-        }
-        downShift();
     }
 
     public boolean addNewNumber() {
@@ -203,6 +137,19 @@ public class GameGrid {
             return true;
         } else
             return false;
+    }
+
+    public boolean hasNextMove() {
+        if (numActiveCells < 16) {
+            return true;
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+
+            }
+        }
+
+        return false;
     }
 
     public int[][] getGrid() {

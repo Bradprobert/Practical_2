@@ -1,7 +1,6 @@
 package bap0031.comp3710.csse.eng.auburn.edu.view;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.TextView;
 
 import java.util.List;
 
 import bap0031.comp3710.csse.eng.auburn.edu.R;
-import bap0031.comp3710.csse.eng.auburn.edu.controller.Grid2048Controller;
 import bap0031.comp3710.csse.eng.auburn.edu.model.Tile;
 import bap0031.comp3710.csse.eng.auburn.edu.model.GameGrid;
 
@@ -28,13 +25,13 @@ import bap0031.comp3710.csse.eng.auburn.edu.model.GameGrid;
  * Use the {@link GameFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GameFragment extends Fragment {
+public class GameFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
     private GridLayout gridView;
     private Button leftButton, rightButton, upButton, downButton;
-    private TextView scoreTv;
-    private Grid2048Controller controller;
+    private GameGrid gameGrid;
+    private List<Tile> tilesList;
 
     public GameFragment() {
         // Required empty public constructor
@@ -52,64 +49,21 @@ public class GameFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
+        gameGrid = new GameGrid();
+        tilesList = gameGrid.toList();
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        controller.saveState();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game, container, false);
 
         gridView = (GridLayout) view.findViewById(R.id.gridView);
-        scoreTv = (TextView) view.findViewById(R.id.textViewScore);
-
-        controller = new Grid2048Controller(gridView, scoreTv, this.getContext());
-        controller.resumeState();
-        controller.refreshGridLayout();
-        controller.refreshScore();
-
         leftButton = (Button) view.findViewById(R.id.buttonLeft);
-        leftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.shiftLeft();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-            }
-        });
         rightButton = (Button) view.findViewById(R.id.buttonRight);
-        rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.shiftRight();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-            }
-        });
         upButton = (Button) view.findViewById(R.id.buttonUp);
-        upButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.shiftUp();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-            }
-        });
         downButton = (Button) view.findViewById(R.id.buttonDown);
-        downButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.shiftDown();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-            }
-        });
         return view;
     }
 
@@ -135,6 +89,20 @@ public class GameFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.buttonLeft:
+                break;
+            case R.id.buttonRight:
+                break;
+            case R.id.buttonUp:
+                break;
+            case R.id.buttonDown:
+                break;
+        }
     }
 
     /**
