@@ -2,7 +2,7 @@ package bap0031.comp3710.csse.eng.auburn.edu;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import bap0031.comp3710.csse.eng.auburn.edu.model.GameGrid;
 
 /**
  * Created by bradley on 4/7/17
