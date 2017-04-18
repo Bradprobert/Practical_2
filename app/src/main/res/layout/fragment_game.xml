@@ -36,147 +36,148 @@
 
 
             <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/colorButtonNormal"
+                android:columnCount="4">
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/tile_height"
+                    android:layout_height="@dimen/tile_width"
+                    android:layout_margin="@dimen/tile_margin"
+                    android:background="@drawable/layout_tile_background">
+
+                </FrameLayout>
+
+            </GridLayout>
+
+            <GridLayout
                 android:id="@+id/gridView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:numColumns="4"
                 android:rowCount="4" />
 
-            <!-- <GridLayout
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:background="?android:attr/colorButtonNormal"
-                 android:columnCount="4">
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-                 <FrameLayout
-                     android:layout_width="@dimen/tile_height"
-                     android:layout_height="@dimen/tile_width"
-                     android:layout_margin="@dimen/tile_margin"
-                     android:background="@drawable/layout_tile_background">
-
-                 </FrameLayout>
-
-             </GridLayout>-->
 
         </FrameLayout>
 
