@@ -13,6 +13,7 @@ import android.widget.GridLayout;
 import java.util.List;
 
 import bap0031.comp3710.csse.eng.auburn.edu.R;
+import bap0031.comp3710.csse.eng.auburn.edu.controller.Grid2048Controller;
 import bap0031.comp3710.csse.eng.auburn.edu.model.Tile;
 import bap0031.comp3710.csse.eng.auburn.edu.model.GameGrid;
 
@@ -30,8 +31,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     private OnFragmentInteractionListener mListener;
     private GridLayout gridView;
     private Button leftButton, rightButton, upButton, downButton;
-    private GameGrid gameGrid;
-    private List<Tile> tilesList;
+    private Grid2048Controller controller;
 
     public GameFragment() {
         // Required empty public constructor
@@ -49,21 +49,50 @@ public class GameFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
-        gameGrid = new GameGrid();
-        tilesList = gameGrid.toList();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game, container, false);
 
         gridView = (GridLayout) view.findViewById(R.id.gridView);
+
+        controller = new Grid2048Controller(gridView, this.getContext());
+
         leftButton = (Button) view.findViewById(R.id.buttonLeft);
+        leftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.shiftLeft();
+                controller.refreshGridLayout();
+            }
+        });
         rightButton = (Button) view.findViewById(R.id.buttonRight);
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.shiftRight();
+                controller.refreshGridLayout();
+            }
+        });
         upButton = (Button) view.findViewById(R.id.buttonUp);
+        upButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.shiftUp();
+                controller.refreshGridLayout();
+            }
+        });
         downButton = (Button) view.findViewById(R.id.buttonDown);
+        downButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.shiftDown();
+                controller.refreshGridLayout();
+            }
+        });
         return view;
     }
 
@@ -95,14 +124,19 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonLeft:
+                controller.shiftLeft();
                 break;
             case R.id.buttonRight:
+                controller.shiftRight();
                 break;
             case R.id.buttonUp:
+                controller.shiftUp();
                 break;
             case R.id.buttonDown:
+                controller.shiftDown();
                 break;
         }
+        gridView = controller.refreshGridLayout();
     }
 
     /**

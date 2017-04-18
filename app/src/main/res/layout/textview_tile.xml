@@ -6,14 +6,13 @@
 
     <bap0031.comp3710.csse.eng.auburn.edu.view.TileView
         android:id="@+id/tileTextView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="@dimen/tile_width"
+        android:layout_height="@dimen/tile_height"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_margin="3dp"
+        android:layout_margin="@dimen/tile_margin"
         android:background="@drawable/layout_tile_background"
         android:gravity="center"
-        android:padding="8dp"
         android:textSize="24sp"
         android:textStyle="bold" />
 </RelativeLayout>
