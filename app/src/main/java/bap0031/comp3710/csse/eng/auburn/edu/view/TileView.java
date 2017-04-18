@@ -5,11 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
+import bap0031.comp3710.csse.eng.auburn.edu.R;
+
 /**
  * Created by bradley on 4/13/17
  */
 
 public class TileView extends AppCompatTextView {
+
     public TileView(Context context) {
         super(context);
     }
