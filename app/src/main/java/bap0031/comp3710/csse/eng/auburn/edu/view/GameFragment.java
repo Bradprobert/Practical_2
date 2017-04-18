@@ -1,6 +1,7 @@
 package bap0031.comp3710.csse.eng.auburn.edu.view;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
