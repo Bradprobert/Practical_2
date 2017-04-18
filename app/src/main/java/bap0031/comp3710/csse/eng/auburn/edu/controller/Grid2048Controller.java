@@ -55,40 +55,40 @@ public class Grid2048Controller {
     }
 
     private void chooseColor(Drawable drawable, int value) {
-        Resources resources = context.getResources();
+        Resources mResources = context.getResources();
         switch (value) {
             case 2:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum2, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum2, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 4:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum4, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum4, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 8:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum8, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum8, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 16:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum16, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum16, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 32:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum32, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum32, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 64:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum64, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum64, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 128:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum128, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum128, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 256:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum256, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum256, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 512:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum512, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum512, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 1024:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum1024, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum1024, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
             case 2048:
-                drawable.setColorFilter(resources.getColor(R.color.colorTileNum2048, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum2048, context.getTheme()), PorterDuff.Mode.OVERLAY);
                 break;
         }
     }
