@@ -1,0 +1,105 @@
+@startuml
+class MainActivity {
+void onCreate()
+void onFragmentInteraction()
+}
+
+
+MainActivity <|-- GameFragment
+GameFragment <|-- Tile
+GameFragment <|-- GameGrid
+GameFragment <|-- Grid2048
+GameFragment <|-- TileView
+GameFragment <|-- Grid2048Controller
+GameFragment <|-- Grid2048Adapter
+
+
+class GameFragment {
+OnFragmentInteractionListener
+GridLayout gridView
+Button leftButton
+Button rightButton
+Button upButton
+Button downButton
+Grid2048Controller controller
+GameFragment()
+GameFragment newInstance()
+void onCreate()
+View onCreateView()
+void onButtonPressed()
+void onAttach()
+void onDetach()
+void onClick()
+interface OnFragmentInteractionListener
+}
+
+class TileView {
+TileView()
+void onMeasure()
+}
+
+class GameGrid {
+int[][] grid
+boolean[][] activeCells
+int numActiveCells
+void GameGrid()
+void initializeGrid()
+void leftShift()
+void combineTilesLeft()
+void upShift()
+void combineTilesUp()
+void rightShift()
+void combineTilesRight()
+void downShift()
+void combineTilesDown()
+Boolean addNewNumber()
+Boolean hasNextMove()
+int[][] getGrid()
+}
+
+class Tile {
+int value
+int row
+int column
+boolean active
+void setValue()
+void setRow()
+void setColumn()
+void setActive()
+int getValue()
+int getRow()
+int getColumn()
+Boolean isActive()
+String toString()
+}
+
+class Grid2048 {
+Tile[][] grid
+int numActiveCells
+void initializeGrid()
+}
+
+class Grid2048Controller {
+Context context
+GameGrid grid
+GridLayout gridLayout
+GridLayout refreshGridLayout()
+chooseColor()
+void shiftLeft()
+void shiftUp()
+void shiftDown()
+void shiftRight()
+}
+
+class Grid2048Adapter {
+Context context;
+LayoutInflater inflater
+int resource
+int tileViewResourceId
+List<Tile> objects
+Resources resources
+Grid2048Adapter()
+View getView()
+void setTileColor()
+}
+@enduml
