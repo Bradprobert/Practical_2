@@ -112,6 +112,36 @@ public class GameFragment extends Fragment {
             }
         });
 
+        gridView.setOnTouchListener(new OnSwipeTouchListener(this.getContext()) {
+            @Override
+            public void onSwipeRight() {
+                controller.shiftRight();
+                controller.refreshGridLayout();
+                controller.refreshScore();
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                controller.shiftLeft();
+                controller.refreshGridLayout();
+                controller.refreshScore();
+            }
+
+            @Override
+            public void onSwipeTop() {
+                controller.shiftDown();
+                controller.refreshGridLayout();
+                controller.refreshScore();
+            }
+
+            @Override
+            public void onSwipeBottom() {
+                controller.shiftDown();
+                controller.refreshGridLayout();
+                controller.refreshScore();
+            }
+        });
+
         restartButton = (Button) view.findViewById(R.id.buttonRestart);
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
