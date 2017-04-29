@@ -6,8 +6,6 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -38,6 +36,7 @@ public class Grid2048Controller {
         this.gridLayout = gridLayout;
         this.scoreTv = scoreTv;
         this.context = context;
+        gridLayout.setOnTouchListener(new OnSwipeTouchListener(this.context));
     }
 
     public void refreshScore() {
@@ -81,37 +80,37 @@ public class Grid2048Controller {
         Resources mResources = context.getResources();
         switch (value) {
             case 2:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum2, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum2), PorterDuff.Mode.OVERLAY);
                 break;
             case 4:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum4, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum4), PorterDuff.Mode.OVERLAY);
                 break;
             case 8:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum8, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum8), PorterDuff.Mode.OVERLAY);
                 break;
             case 16:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum16, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum16), PorterDuff.Mode.OVERLAY);
                 break;
             case 32:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum32, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum32), PorterDuff.Mode.OVERLAY);
                 break;
             case 64:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum64, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum64), PorterDuff.Mode.OVERLAY);
                 break;
             case 128:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum128, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum128), PorterDuff.Mode.OVERLAY);
                 break;
             case 256:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum256, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum256), PorterDuff.Mode.OVERLAY);
                 break;
             case 512:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum512, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum512), PorterDuff.Mode.OVERLAY);
                 break;
             case 1024:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum1024, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum1024), PorterDuff.Mode.OVERLAY);
                 break;
             case 2048:
-                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum2048, context.getTheme()), PorterDuff.Mode.OVERLAY);
+                drawable.setColorFilter(mResources.getColor(R.color.colorTileNum2048), PorterDuff.Mode.OVERLAY);
                 break;
         }
     }
@@ -164,6 +163,11 @@ public class Grid2048Controller {
             grid = new GameGrid(list, score);
 
         }
+    }
 
+    public void reset() {
+        grid = new GameGrid();
+        refreshGridLayout();
+        refreshScore();
     }
 }

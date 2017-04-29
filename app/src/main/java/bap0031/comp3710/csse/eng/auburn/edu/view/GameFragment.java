@@ -16,6 +16,7 @@ import java.util.List;
 
 import bap0031.comp3710.csse.eng.auburn.edu.R;
 import bap0031.comp3710.csse.eng.auburn.edu.controller.Grid2048Controller;
+import bap0031.comp3710.csse.eng.auburn.edu.controller.OnSwipeTouchListener;
 import bap0031.comp3710.csse.eng.auburn.edu.model.Tile;
 import bap0031.comp3710.csse.eng.auburn.edu.model.GameGrid;
 
@@ -35,6 +36,7 @@ public class GameFragment extends Fragment {
     private Button leftButton, rightButton, upButton, downButton;
     private TextView scoreTv;
     private Grid2048Controller controller;
+    private Button restartButton;
 
     public GameFragment() {
         // Required empty public constructor
@@ -68,7 +70,6 @@ public class GameFragment extends Fragment {
 
         gridView = (GridLayout) view.findViewById(R.id.gridView);
         scoreTv = (TextView) view.findViewById(R.id.textViewScore);
-
         controller = new Grid2048Controller(gridView, scoreTv, this.getContext());
         controller.resumeState();
         controller.refreshGridLayout();
@@ -108,6 +109,14 @@ public class GameFragment extends Fragment {
                 controller.shiftDown();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+            }
+        });
+
+        restartButton = (Button) view.findViewById(R.id.buttonRestart);
+        restartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.reset();
             }
         });
         return view;

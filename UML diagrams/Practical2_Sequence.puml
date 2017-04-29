@@ -1,0 +1,15 @@
+@startuml
+MainActivity -> GameFragment
+GameFragment -> Grid2048Controller: update GridLayout
+Grid2048Controller -> GridLayout: update GridLayout
+Grid2048Controller -> TileView: refreshGridLayout
+Grid2048Controller -> GameGrid: update GridLayout
+Grid2048Adapter -> TileView:: set color
+Grid2048Adapter -> Tile: select color
+Grid2048Adapter <- Tile: select color
+Grid2048Adapter <- TileView: set color
+Grid2048Controller <- GameGrid: update GridLayout
+Grid2048Controller <- TileView: refreshGridLayout
+GameElement <- Grid2048Controller
+MainActivity <- GameElement
+@enduml
