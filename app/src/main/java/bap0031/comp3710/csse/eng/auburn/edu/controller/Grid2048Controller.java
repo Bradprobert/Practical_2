@@ -36,6 +36,7 @@ public class Grid2048Controller {
         this.gridLayout = gridLayout;
         this.scoreTv = scoreTv;
         this.context = context;
+        gridLayout.setOnTouchListener(new OnSwipeTouchListener(this.context));
     }
 
     public void refreshScore() {

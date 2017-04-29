@@ -16,6 +16,7 @@ import java.util.List;
 
 import bap0031.comp3710.csse.eng.auburn.edu.R;
 import bap0031.comp3710.csse.eng.auburn.edu.controller.Grid2048Controller;
+import bap0031.comp3710.csse.eng.auburn.edu.controller.OnSwipeTouchListener;
 import bap0031.comp3710.csse.eng.auburn.edu.model.Tile;
 import bap0031.comp3710.csse.eng.auburn.edu.model.GameGrid;
 
@@ -69,7 +70,6 @@ public class GameFragment extends Fragment {
 
         gridView = (GridLayout) view.findViewById(R.id.gridView);
         scoreTv = (TextView) view.findViewById(R.id.textViewScore);
-
         controller = new Grid2048Controller(gridView, scoreTv, this.getContext());
         controller.resumeState();
         controller.refreshGridLayout();
