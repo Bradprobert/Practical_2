@@ -32,11 +32,10 @@ public class Grid2048Controller {
     private GridLayout gridLayout;
     private TextView scoreTv;
 
-    public Grid2048Controller(GridLayout gridLayout, TextView scoreTv, Context context) {
+    public Grid2048Controller(final GridLayout gridLayout, TextView scoreTv, Context context) {
         this.gridLayout = gridLayout;
         this.scoreTv = scoreTv;
         this.context = context;
-        gridLayout.setOnTouchListener(new OnSwipeTouchListener(this.context));
     }
 
     public void refreshScore() {
