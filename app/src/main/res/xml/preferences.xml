@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+   xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <EditTextPreference
+       android:title="Number of Wrong Guesses"
+       android:summary="Indicate how many incorrect selections can be made"
+       android:persistent="true"
+       android:key = "pref_wrongGuesses"
+       android:inputType = "number" />
+
+
+</PreferenceScreen>

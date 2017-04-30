@@ -37,6 +37,14 @@
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/menuButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/tile_margin"
+                android:layout_weight="1"
+                android:background="@android:drawable/ic_menu_manage" />
+
         </LinearLayout>
 
         <FrameLayout

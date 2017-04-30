@@ -1,7 +1,9 @@
 package bap0031.comp3710.csse.eng.auburn.edu.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,6 +39,8 @@ public class GameFragment extends Fragment {
     private TextView scoreTv;
     private Grid2048Controller controller;
     private Button restartButton;
+    private MediaPlayer mp;
+    private Button menuButton;
 
     public GameFragment() {
         // Required empty public constructor
@@ -54,6 +58,7 @@ public class GameFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
+        mp = MediaPlayer.create(this.getContext(), R.raw.clownhorn);
     }
 
     @Override
@@ -82,6 +87,7 @@ public class GameFragment extends Fragment {
                 controller.shiftLeft();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
             }
         });
         rightButton = (Button) view.findViewById(R.id.buttonRight);
@@ -91,6 +97,7 @@ public class GameFragment extends Fragment {
                 controller.shiftRight();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
             }
         });
         upButton = (Button) view.findViewById(R.id.buttonUp);
@@ -100,6 +107,7 @@ public class GameFragment extends Fragment {
                 controller.shiftUp();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
             }
         });
         downButton = (Button) view.findViewById(R.id.buttonDown);
@@ -109,6 +117,16 @@ public class GameFragment extends Fragment {
                 controller.shiftDown();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
+            }
+        });
+
+        menuButton = (Button) view.findViewById(R.id.menuButton);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent preferencesIntent = new Intent(getContext(), SettingsActivity.class);
+                startActivity(preferencesIntent);
             }
         });
 
@@ -118,6 +136,7 @@ public class GameFragment extends Fragment {
                 controller.shiftRight();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
             }
 
             @Override
@@ -125,13 +144,15 @@ public class GameFragment extends Fragment {
                 controller.shiftLeft();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
             }
 
             @Override
             public void onSwipeTop() {
-                controller.shiftDown();
+                controller.shiftUp();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
             }
 
             @Override
@@ -139,6 +160,7 @@ public class GameFragment extends Fragment {
                 controller.shiftDown();
                 controller.refreshGridLayout();
                 controller.refreshScore();
+                mp.start();
             }
         });
 
