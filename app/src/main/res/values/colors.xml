@@ -3,6 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="about_fragment_background">#86cacaca</color>
+    <color name="about_text_color">#2235ff</color>
 
     <color name="colorTileNum2">#cbfffffc</color>
     <color name="colorTileNum4">#f4efb7</color>

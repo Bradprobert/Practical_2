@@ -1,7 +1,6 @@
 package bap0031.comp3710.csse.eng.auburn.edu.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -14,13 +13,9 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
-import java.util.List;
-
 import bap0031.comp3710.csse.eng.auburn.edu.R;
 import bap0031.comp3710.csse.eng.auburn.edu.controller.Grid2048Controller;
 import bap0031.comp3710.csse.eng.auburn.edu.controller.OnSwipeTouchListener;
-import bap0031.comp3710.csse.eng.auburn.edu.model.Tile;
-import bap0031.comp3710.csse.eng.auburn.edu.model.GameGrid;
 
 
 /**
@@ -40,7 +35,6 @@ public class GameFragment extends Fragment {
     private Grid2048Controller controller;
     private Button restartButton;
     private MediaPlayer mp;
-    private Button menuButton;
 
     public GameFragment() {
         // Required empty public constructor
@@ -87,7 +81,7 @@ public class GameFragment extends Fragment {
                 controller.shiftLeft();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
         });
         rightButton = (Button) view.findViewById(R.id.buttonRight);
@@ -97,7 +91,7 @@ public class GameFragment extends Fragment {
                 controller.shiftRight();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
         });
         upButton = (Button) view.findViewById(R.id.buttonUp);
@@ -107,7 +101,7 @@ public class GameFragment extends Fragment {
                 controller.shiftUp();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
         });
         downButton = (Button) view.findViewById(R.id.buttonDown);
@@ -117,18 +111,10 @@ public class GameFragment extends Fragment {
                 controller.shiftDown();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
         });
 
-        menuButton = (Button) view.findViewById(R.id.menuButton);
-        menuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent preferencesIntent = new Intent(getContext(), SettingsActivity.class);
-                startActivity(preferencesIntent);
-            }
-        });
 
         gridView.setOnTouchListener(new OnSwipeTouchListener(this.getContext()) {
             @Override
@@ -136,7 +122,7 @@ public class GameFragment extends Fragment {
                 controller.shiftRight();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
 
             @Override
@@ -144,7 +130,7 @@ public class GameFragment extends Fragment {
                 controller.shiftLeft();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
 
             @Override
@@ -152,7 +138,7 @@ public class GameFragment extends Fragment {
                 controller.shiftUp();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
 
             @Override
@@ -160,7 +146,7 @@ public class GameFragment extends Fragment {
                 controller.shiftDown();
                 controller.refreshGridLayout();
                 controller.refreshScore();
-                mp.start();
+                playSound();
             }
         });
 
@@ -172,6 +158,13 @@ public class GameFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    private void playSound() {
+        SharedPreferences sp = getActivity().getSharedPreferences("setttings", Context.MODE_PRIVATE);
+        if (sp.getBoolean("sound", true)) {
+            mp.start();
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

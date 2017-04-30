@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sound_on_off"
+        android:checkable="true"
+        android:title="@string/sound_title" />
+    <item
+        android:id="@+id/demo_on_off"
+        android:checkable="true"
+        android:title="@string/demo" />
+
+    <item
+        android:id="@+id/about_page"
+        android:title="@string/about_page" />
+</menu>
