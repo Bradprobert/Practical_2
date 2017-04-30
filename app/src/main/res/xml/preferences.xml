@@ -2,12 +2,10 @@
 <PreferenceScreen
    xmlns:android="http://schemas.android.com/apk/res/android">
 
-   <EditTextPreference
-       android:title="Number of Wrong Guesses"
-       android:summary="Indicate how many incorrect selections can be made"
-       android:persistent="true"
-       android:key = "pref_wrongGuesses"
-       android:inputType = "number" />
+   <SwitchPreference
+       android:key="sound"
+       android:title="@string/sound_title"
+       android:defaultValue="true" />
 
 
 </PreferenceScreen>

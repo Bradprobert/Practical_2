@@ -5,6 +5,8 @@ package bap0031.comp3710.csse.eng.auburn.edu.view;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
+import bap0031.comp3710.csse.eng.auburn.edu.R;
+
 public class SettingsActivityFragment extends PreferenceFragment {
    // creates preferences GUI from preferences.xml file in res/xml
    @Override
