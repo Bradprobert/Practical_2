@@ -18,7 +18,7 @@ import android.view.WindowManager;
 
 import bap0031.comp3710.csse.eng.auburn.edu.R;
 
-public class MainActivity extends AppCompatActivity implements GameFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements GameFragment.OnFragmentInteractionListener, AboutFragment.OnFragmentInteractionListener, DemoFragment.OnFragmentInteractionListener {
 
 
     @Override
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements GameFragment.OnFr
         SharedPreferences sp = getSharedPreferences("setttings", Context.MODE_PRIVATE);
         menu.findItem(R.id.sound_on_off).setChecked(sp.getBoolean("sound", true));
         menu.findItem(R.id.demo_on_off).setChecked(sp.getBoolean("demo", false));
-
         return true;
     }
 
@@ -60,9 +59,7 @@ public class MainActivity extends AppCompatActivity implements GameFragment.OnFr
                 editor.apply();
                 return true;
             case R.id.demo_on_off:
-                item.setChecked(!item.isChecked());
-                editor.putBoolean("demo", item.isChecked());
-                editor.apply();
+                replaceFragment(DemoFragment.newInstance());
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -70,11 +67,13 @@ public class MainActivity extends AppCompatActivity implements GameFragment.OnFr
 
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        ;
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_holder, fragment, fragment.toString());
-        fragmentTransaction.addToBackStack(fragment.toString());
-        fragmentTransaction.commit();
+        if (!fragmentManager.popBackStackImmediate(fragment.getClass().getName(), 0)) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_holder, fragment, fragment.toString());
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            fragmentTransaction.addToBackStack(fragment.toString());
+            fragmentTransaction.commit();
+        }
     }
 
     @Override

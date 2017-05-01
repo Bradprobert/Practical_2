@@ -6,7 +6,6 @@
         android:title="@string/sound_title" />
     <item
         android:id="@+id/demo_on_off"
-        android:checkable="true"
         android:title="@string/demo" />
 
     <item

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
+
+import java.util.Random;
 
 import bap0031.comp3710.csse.eng.auburn.edu.R;
 import bap0031.comp3710.csse.eng.auburn.edu.controller.Grid2048Controller;
@@ -35,6 +38,7 @@ public class GameFragment extends Fragment {
     private Grid2048Controller controller;
     private Button restartButton;
     private MediaPlayer mp;
+    private Handler handler;
 
     public GameFragment() {
         // Required empty public constructor
@@ -78,40 +82,28 @@ public class GameFragment extends Fragment {
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.shiftLeft();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                leftButton();
             }
         });
         rightButton = (Button) view.findViewById(R.id.buttonRight);
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.shiftRight();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                rightButton();
             }
         });
         upButton = (Button) view.findViewById(R.id.buttonUp);
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.shiftUp();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                upButton();
             }
         });
         downButton = (Button) view.findViewById(R.id.buttonDown);
         downButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.shiftDown();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                downButton();
             }
         });
 
@@ -119,34 +111,22 @@ public class GameFragment extends Fragment {
         gridView.setOnTouchListener(new OnSwipeTouchListener(this.getContext()) {
             @Override
             public void onSwipeRight() {
-                controller.shiftRight();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                rightButton();
             }
 
             @Override
             public void onSwipeLeft() {
-                controller.shiftLeft();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                leftButton();
             }
 
             @Override
             public void onSwipeTop() {
-                controller.shiftUp();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                upButton();
             }
 
             @Override
             public void onSwipeBottom() {
-                controller.shiftDown();
-                controller.refreshGridLayout();
-                controller.refreshScore();
-                playSound();
+                downButton();
             }
         });
 
@@ -158,6 +138,34 @@ public class GameFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    private void downButton() {
+        controller.shiftDown();
+        controller.refreshGridLayout();
+        controller.refreshScore();
+        playSound();
+    }
+
+    private void leftButton() {
+        controller.shiftLeft();
+        controller.refreshGridLayout();
+        controller.refreshScore();
+        playSound();
+    }
+
+    private void upButton() {
+        controller.shiftUp();
+        controller.refreshGridLayout();
+        controller.refreshScore();
+        playSound();
+    }
+
+    private void rightButton() {
+        controller.shiftRight();
+        controller.refreshGridLayout();
+        controller.refreshScore();
+        playSound();
     }
 
     private void playSound() {
